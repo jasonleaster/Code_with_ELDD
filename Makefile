@@ -1,6 +1,6 @@
 ifneq	($(KERNELRELEASE),)
 	
-	obj-m	:= cmos_demo.o
+	obj-m	:= cmos.o
 else
 	
 	KERNELDIR ?= /lib/modules/$(shell uname -r)/build
@@ -11,5 +11,5 @@ modules:
 	$(MAKE) -C $(SUBDIR) M=$(PWD) modules
 
 clean:
-	rm *.o *.ko *.order *.symvers *.mod.c
+	rm *.o *.ko *.order *.symvers *.mod.c .cmos*
 endif
