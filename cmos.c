@@ -1,6 +1,6 @@
 /************************************************************
 code writer : EOF
-code date : 2014.08.15
+code date : 2014.08.16
 code file : cmos.c
 e-mail:	jasonleaster@gmail.com
 
@@ -8,9 +8,8 @@ code purpose:
 	This code is a demo for how to build a CMOS-driver
 step by step.
 
-
-	If you have idea with my bug, please touch me by e-mail.
-Thank you all the time.
+	If you find something wrong with my code, please
+touch me by e-mail. Thank you all the time.
 
 ************************************************************/
 #include <linux/module.h>
@@ -29,7 +28,10 @@ Thank you all the time.
 
 #include <asm/uaccess.h>
 
-int cmos_major = 0;//defualt device number
+/*
+** We allocate the device number dynamically
+*/
+int cmos_major = 0;
 int cmos_minor = 0;
 
 module_param(cmos_major,int,S_IRUGO);
@@ -43,7 +45,7 @@ struct class	*cmos_class;	/* Tie with the device model */
 
 #define CMOS_BANK0_INDEX_PORT	0x70
 #define CMOS_BANK0_DATA_PORT	0x71
-#define CMOS_BANK1_INDEX_PORT	0x72
+#define CMOS_BANK1_INDEX_PORT	0x72	//At this moment , I still don't know what was stored in port 0x72 and 0x73
 #define CMOS_BANK1_DATA_PORT	0x73
 
 unsigned char addrports[NUM_CMOS_BANKS] = {CMOS_BANK0_INDEX_PORT,CMOS_BANK1_INDEX_PORT};
