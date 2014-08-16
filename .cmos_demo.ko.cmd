@@ -1,1 +1,0 @@
-cmd_//home/jasonleaster/Code_by_Jason/ELDD/chapter_5/CMOS/cmos_demo.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.13.0-32-generic/scripts/module-common.lds --build-id  -o //home/jasonleaster/Code_by_Jason/ELDD/chapter_5/CMOS/cmos_demo.ko //home/jasonleaster/Code_by_Jason/ELDD/chapter_5/CMOS/cmos_demo.o //home/jasonleaster/Code_by_Jason/ELDD/chapter_5/CMOS/cmos_demo.mod.o
