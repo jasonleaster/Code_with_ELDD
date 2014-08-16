@@ -8,7 +8,7 @@ code purpose:
 	This is a demo for user how to use CMOS device driver.
 Unfortunately, there are some bugs I can't fix it up.
 
-#BUG1--2014.08.16:
+#BUG1--2014.08.16: mid-night
 
 	You know that data store in CMOS register as BCD-code.If you want
 to represent it as deciminal, we could transform two-bits BCD-code into
@@ -22,11 +22,20 @@ code is cmos[0].
 	If you have someidea to fix it up, please touch me. Thank you.
 
 
-#BUG2--2014.08.16:
+#BUG2--2014.08.16: mid-night
 	
 	The day value is smaller than the real time by one day.
 Eg:
 	Today is 08.16, but it print out 'day:15'.God know it...
+
+
+#BUG1 fixed in 2014.08.16 afternoon by @lang_yun. 
+
+	I have to say thanks to him.
+
+	Hey guys, never forget the () around 'cmos[0]&0xF0' ...
+
+Otherwise, you will be puzzle..
 
 *********************************************************************/
 #include <stdio.h>
