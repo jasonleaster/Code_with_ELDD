@@ -1,6 +1,6 @@
 ifneq	($(KERNELRELEASE),)
 	
-	obj-m	:= cmos.o
+	obj-m	:= led.o
 else
 	
 	KERNELDIR ?= /lib/modules/$(shell uname -r)/build

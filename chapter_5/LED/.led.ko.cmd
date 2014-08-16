@@ -1,0 +1,1 @@
+cmd_//home/jasonleaster/Code_by_Jason/ELDD/chapter_5/LED/led.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.13.0-32-generic/scripts/module-common.lds --build-id  -o //home/jasonleaster/Code_by_Jason/ELDD/chapter_5/LED/led.ko //home/jasonleaster/Code_by_Jason/ELDD/chapter_5/LED/led.o //home/jasonleaster/Code_by_Jason/ELDD/chapter_5/LED/led.mod.o

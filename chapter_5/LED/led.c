@@ -1,8 +1,16 @@
+#include <linux/init.h>
+#include <linux/slab.h>
+
+#include <linux/types.h> /* dev_t */
+#include <linux/kdev_t.h> /* MKDEV MAJOR MINOR */
 #include <linux/fs.h>
 #include <linux/cdev.h>
 #include <linux/parport.h>
 #include <asm/uaccess.h>
 #include <linux/platform_device.h>
+#include <linux/moduleparam.h>
+#include <linux/module.h>
+#include <linux/device.h>
 
 #define DEVICE_NAME "led"
 
@@ -100,7 +108,7 @@ int led_init(void)
 		return 1;
 	}
 
-	class_device_create(led_class,NULL,dev_number,NULL,DEVICE_NAME);
+	device_create(led_class,NULL,dev_number,NULL,DEVICE_NAME);
 
 	if(parport_register_driver(&led_driver))
 	{
@@ -117,7 +125,7 @@ int led_init(void)
 
 void led_cleanup(void)
 {
-	class_device_destroy(led_class,MKDEV(MAJOR(dev_number)),0);
+	device_destroy(led_class,MKDEV(MAJOR(dev_number),0));
 	
 	class_destroy(led_class);
 
